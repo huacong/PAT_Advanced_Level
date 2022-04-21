@@ -38,14 +38,16 @@ int find(int v)
 int main()
 {
 	scanf("%d%d",&n,&k);
+	for(int i=1;i<=2*n;i++)
+		father[i] = i;
 	for(int i=1;i<=n;i++)
 	{
-		char name1[4]; char name2[4];
+		string name1; string name2;
 		int w;
-		//scanf("%s%s%d",name1,name2,&weight);
+		////scanf("%s%s%d",name1,name2,&weight);
 		cin >> name1 >> name2 >> w;
-		int num1 = str2int(name1); father[num1] = num1;
-		int num2 = str2int(name2); father[num2] = num2;
+		int num1 = str2int(name1); //father[num1] = num1;
+		int num2 = str2int(name2); //father[num2] = num2;
 		v[num1] += w;
 		v[num2] += w;
 		edge[num1][num2] = w;
@@ -53,7 +55,7 @@ int main()
 		int fx = find(num1); int fy = find(num2);
 		if(fx!=fy)
 		{
-			weight[fy] = weight[fx] + edge[fy][fx];
+			weight[fy] += weight[fx] + edge[num1][num2];//edge[fy][fx];
 			father[fx] = fy;
 		}
 		else if(fx==fy)
@@ -62,15 +64,6 @@ int main()
 	for(int i=1;i<=num;i++)
 		cnt[find(i)] ++;
 	int tmp = 0;
-	for(int i=1;i<=num;i++)
-		printf("%d ",cnt[i]);
-	printf("\n");
-	for(int i=1;i<=num;i++)
-		printf("%d ", weight[i]);
-	printf("\n");
-	for(int i=1;i<=num;i++)
-		printf("%d ",find(i));
-	printf("\n");
 	for(int i=1;i<=num;i++)
 	{
 		//保证是根 同时节点数>2 
