@@ -1,6 +1,6 @@
 #include<cstdio>
 #include<algorithm>
-//使用 bfs
+//使锟斤拷 bfs
 using namespace std;
 const int maxn = 1e3+20;
 int din[maxn];
@@ -40,7 +40,7 @@ int main()
 		printf("%d ",u);
 		for(int i=head[u];i!=0;i=edge[i].next)
 		{
-			int v = edge[i].to; //目的地
+			int v = edge[i].to; //
 			din[v]--;
 			if(din[v]==0)
 				stack[++tot] = v;	
