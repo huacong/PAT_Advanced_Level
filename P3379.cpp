@@ -50,6 +50,8 @@ int main()
 	 } 
 	for(int i=1;i<=n;i++)
 	 	lg[i]=lg[i-1]+(1<<lg[i-1]==i);//o（1）求对数
+	for(int i=1;i<=n;i++)
+		printf("lg[%d]:%d ",i,lg[i]);
 	dfs(s,0);//预处理 树根的父亲当然是0 
 	for(int i=1;i<=m;i++){
 		scanf("%d%d",&x,&y);
