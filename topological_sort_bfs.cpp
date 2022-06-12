@@ -1,6 +1,5 @@
 #include<cstdio>
 #include<algorithm>
-//ʹ�� bfs
 using namespace std;
 const int maxn = 1e3+20;
 int din[maxn];
